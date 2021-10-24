@@ -1,0 +1,83 @@
+conky.config = {
+	background = true,
+	font = 'Zekton:size=7',
+	font = 'Zekton:size=7',
+	use_xft = true,
+	xftalpha = 0.1,
+	update_interval = 1.0,
+	total_run_times = 0,
+	own_window = true,
+	own_window_type = 'desktop',
+	own_window_argb_visual = true,
+	own_window_argb_value = 160,
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	minimum_width = 220, minimum_height = 5,
+	maximum_width = 220,
+	default_color = '#800080',
+	color1 = 'red',
+	color2 = '0000FF',
+	default_shade_color = 'pink',
+	default_outline_color = 'pink',
+	alignment = 'top_right',
+	gap_x = 10,
+	gap_y = 50,
+	no_buffers = true,
+	cpu_avg_samples = 2,
+	override_utf8_locale = true,
+	uppercase = false,-- set to yes if you want all text to be in uppercase
+	use_spacer = 'none'
+};
+
+conky.text = [[
+${font Zekton:style=Bold:pixelsize=20}${alignc}${time %H:%M:%S}${font Zekton:size=8}
+${font Zekton:style=Bold:pixelsize=10}${alignc}${time %A - %d/%m/%Y%n%tday %j week %U - %Z | %z}${font Zekton:size=8}
+
+${font Zekton:style=Bold:pixelsize=16}${alignc} \`[T] / ${font Zekton:size=8}
+
+SYSTEM ${hr 1 }
+
+Hostname: $alignr$nodename
+Kernel: $alignr$kernel
+Uptime: $alignr$uptime
+Processes: ${alignr}$processes ($running_processes running)
+Load: ${alignr}$loadavg
+CPU ${alignc} ${freq}MHz / ${acpitemp}C ${alignr}(${cpu cpu1}%)
+$color1${cpubar 4 cpu1}$color
+$color2${cpugraph 000000 0000FF}$color
+RAM ${alignr}$mem / $memmax ($memperc%)
+$color1${membar 4}$color
+SWAP ${alignr}$swap / $swapmax ($swapperc%)
+$color1${swapbar 4}$color
+
+Highest CPU $alignr CPU% MEM%
+${top name 1}$alignr${top cpu 1}${top mem 1}
+${top name 2}$alignr${top cpu 2}${top mem 2}
+${top name 3}$alignr${top cpu 3}${top mem 3}
+
+Highest MEM $alignr CPU% MEM%
+${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
+${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
+${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+
+FILESYSTEM ${hr 1}${color}
+
+Root: $alignr ${fs_used /} / ${fs_size /} ($alignr${fs_free_perc /}%)
+$color1${fs_bar 4 /}$color
+Home: $alignr ${fs_used /home/} / ${fs_size /home} ($alignr${fs_free_perc /home}%)
+$color1${fs_bar 4 /home}$color
+HD I/O $color2 ${diskiograph /dev/sda 000000 0000FF}$color
+
+NETWORK ${hr 1}${color}
+
+$gw_iface:
+Down ${downspeed enp6s0f5} k/s ${alignr}Up ${upspeed enp6s0f5} k/s
+$color2${downspeedgraph enp6s0f5 25,107 000000 0000FF} ${alignr}${upspeedgraph enp6s0f5 25,107 000000 0000FF}$color
+Total ${totaldown enp6s0f5} ${alignr}Total ${totalup enp6s0f5}
+
+]];

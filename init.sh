@@ -9,6 +9,13 @@ else
     ln -s ~/dotfiles/.bashrc ~ && echo 'BASHRC was linked sucessfully!!' || echo 'BASHRC was not linked!!'
 fi
 
+CONKYRC=~/.conkyrc
+if [ -f "$CONKYRC" ]; then
+    rm ~/.conkyrc && ln -s ~/dotfiles/.conkyrc ~ && echo 'CONKYRC was replaced sucessfully!!' || echo 'CONKYRC was not replaced!!'
+else
+    ln -s ~/dotfiles/.conkyrc ~ && echo 'CONKYRC was linked sucessfully!!' || echo 'CONKYRC was not linked!!'
+fi
+
 AUTOSTART=~/.config/autostart
 if [ -d "$AUTOSTART" ]; then
     rm -r $AUTOSTART && ln -s ~/dotfiles/config/autostart ~/.config && echo 'AUTOSTART directory was replaced sucessfully!!' || echo 'AUTOSTART was not replaced!!'
