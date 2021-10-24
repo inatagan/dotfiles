@@ -1,0 +1,6 @@
+[user]
+	name = inatagan
+	email = 22266171+inatagan@users.noreply.github.com
+
+[includeIf "gitdir:~/workspace/fatoldsunbro/"]
+    path = ~/workspace/fatoldsunbro/.gitconfig
