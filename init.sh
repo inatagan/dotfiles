@@ -46,29 +46,38 @@ else
     echo 'huh papirus-folders'
 fi
 
-#pulse audio needs rework
-# PULSE=~/.config/pulse
-# if [ -d "$PULSE" ]; then
-#     #rm -r $PULSE && ln -s ~/dotfiles/config/papirus-folders ~/.config
-#     echo 'pulse folder exists'
-#     if [ -f "$HOME/.config/pulse/client.conf" ]; then
-#         rm ~/.config/pulse/client.conf && ln -s ~/dotfiles/config/pulse/client.conf ~/.config/pulse
-#     elif [ -f "$HOME/.config/pulse/daemon.conf" ]; then
-#         rm ~/.config/pulse/daemon.conf && ln -s ~/dotfiles/config/pulse/daemon.conf ~/.config/pulse
-#     elif [ -f "$HOME/.config/pulse/default.pa" ]; then
-#         rm ~/.config/pulse/default.pa && ln -s ~/dotfiles/config/pulse/default.pa ~/.config/pulse
-#     else
-#         ln -s ~/dotfiles/config/pulse/client.conf ~/.config/pulse
-#         ln -s ~/dotfiles/config/pulse/daemon.conf ~/.config/pulse
-#         ln -s ~/dotfiles/config/pulse/default.pa ~/.config/pulse
-#     fi
-# else
-#     mkdir ~/.config/pulse
-#     ln -s ~/dotfiles/config/pulse/client.conf ~/.config/pulse
-#     ln -s ~/dotfiles/config/pulse/daemon.conf ~/.config/pulse
-#     ln -s ~/dotfiles/config/pulse/default.pa ~/.config/pulse
-#     echo 'huh papirus-folders'
-# fi
+PULSE=~/.config/pulse
+if [ -d "$PULSE" ]; then
+    #rm -r $PULSE && ln -s ~/dotfiles/config/papirus-folders ~/.config
+    echo 'pulse folder exists'
+    if [ -f "$HOME/.config/pulse/client.conf" ]; then
+        rm -f ~/.config/pulse/client.conf && ln -s ~/dotfiles/config/pulse/client.conf ~/.config/pulse
+        echo 'client.conf was replaced sucessfully!!'
+    else
+        ln -s ~/dotfiles/config/pulse/client.conf ~/.config/pulse
+        echo 'client file was linked sucessfully!!'
+    fi
+    if [ -f "$HOME/.config/pulse/daemon.conf" ]; then
+        rm -f ~/.config/pulse/daemon.conf && ln -s ~/dotfiles/config/pulse/daemon.conf ~/.config/pulse
+        echo 'daemon.conf was replaced sucessfully!!'
+    else
+        ln -s ~/dotfiles/config/pulse/daemon.conf ~/.config/pulse
+        echo 'daemon file was linked sucessfully!!'
+    fi
+    if [ -f "$HOME/.config/pulse/default.pa" ]; then
+        rm -f ~/.config/pulse/default.pa && ln -s ~/dotfiles/config/pulse/default.pa ~/.config/pulse
+        echo 'default.pa was replaced sucessfully!!'
+    else
+        ln -s ~/dotfiles/config/pulse/default.pa ~/.config/pulse
+        echo 'default file was linked sucessfully!!'
+    fi
+else
+    mkdir ~/.config/pulse
+    ln -s ~/dotfiles/config/pulse/client.conf ~/.config/pulse
+    ln -s ~/dotfiles/config/pulse/daemon.conf ~/.config/pulse
+    ln -s ~/dotfiles/config/pulse/default.pa ~/.config/pulse
+    echo 'pulse folde was created and linked sucessfully!!'
+fi
 
 THUNAR=~/.config/Thunar
 if [ -d "$THUNAR" ]; then

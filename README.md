@@ -13,3 +13,5 @@ Give execute permission to the init script:
 Run the init script to create the correct symlinks:
 
 `./init.sh`
+
+Run any additional scripts you may want or install wanted software.
