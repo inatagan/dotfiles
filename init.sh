@@ -4,113 +4,113 @@
 BASHRC=~/.bashrc
 if [ -f "$BASHRC" ]; then
     rm ~/.bashrc && ln -s ~/dotfiles/.bashrc ~
-    echo 'it works!!'
+    echo 'BASHRC was replaced sucessfully!!'
 else
     ln -s ~/dotfiles/.bashrc ~
-    echo 'huh?'
+    echo 'BASHRC was linked sucessfully!!'
 fi
 
 AUTOSTART=~/.config/autostart
 if [ -d "$AUTOSTART" ]; then
     rm -r $AUTOSTART && ln -s ~/dotfiles/config/autostart ~/.config
-    echo 'it works!'
+    echo 'AUTOSTART directory was replaced sucessfully!!'
 else
     ln -s ~/dotfiles/config/autostart ~/.config
-    echo 'huh????'
+    echo 'AUTOSTART files were linked sucessfully!!'
 fi
 
 GIT=~/.config/git
 if [ -d "$GIT" ]; then
     rm -r $GIT && ln -s ~/dotfiles/config/git ~/.config
-    echo "directory \"$GIT\" exists"
+    echo 'GIT directory was replaced sucessfully!!'
 else
     ln -s ~/dotfiles/config/git ~/.config
-    echo 'huh?'
+    echo 'GIT directory was linked sucessfully!!'
 fi
 
 HTOP=~/.config/htop
 if [ -d "$HTOP" ]; then
     rm -r $HTOP && ln -s ~/dotfiles/config/htop ~/.config
-    echo 'it works htop'
+    echo 'HTOP directory was replaced sucessfully'
 else
     ln -s ~/dotfiles/config/htop ~/.config
-    echo 'huh htop'
+    echo 'HTOP directory was linked sucessfully'
 fi
 
 PAP=~/.config/papirus-folders
 if [ -d "$PAP" ]; then
     rm -r $PAP && ln -s ~/dotfiles/config/papirus-folders ~/.config
-    echo 'it works papirus-folders'
+    echo 'PAPIRUS directory was replaced sucessfully'
 else
     ln -s ~/dotfiles/config/papirus-folders ~/.config
-    echo 'huh papirus-folders'
+    echo 'PAPIRUS directory was linked sucessfully'
 fi
 
 PULSE=~/.config/pulse
 if [ -d "$PULSE" ]; then
     #rm -r $PULSE && ln -s ~/dotfiles/config/papirus-folders ~/.config
-    echo 'pulse folder exists'
+    echo '[ WARNING!! ] PULSE folder already exists!!'
     if [ -f "$HOME/.config/pulse/client.conf" ]; then
         rm -f ~/.config/pulse/client.conf && ln -s ~/dotfiles/config/pulse/client.conf ~/.config/pulse
-        echo 'client.conf was replaced sucessfully!!'
+        echo 'CLIENT.CONF was replaced sucessfully!!'
     else
         ln -s ~/dotfiles/config/pulse/client.conf ~/.config/pulse
-        echo 'client file was linked sucessfully!!'
+        echo 'CLIENT.CONF was linked sucessfully!!'
     fi
     if [ -f "$HOME/.config/pulse/daemon.conf" ]; then
         rm -f ~/.config/pulse/daemon.conf && ln -s ~/dotfiles/config/pulse/daemon.conf ~/.config/pulse
-        echo 'daemon.conf was replaced sucessfully!!'
+        echo 'DAEMON.CONF was replaced sucessfully!!'
     else
         ln -s ~/dotfiles/config/pulse/daemon.conf ~/.config/pulse
-        echo 'daemon file was linked sucessfully!!'
+        echo 'DAEMON.CONF was linked sucessfully!!'
     fi
     if [ -f "$HOME/.config/pulse/default.pa" ]; then
         rm -f ~/.config/pulse/default.pa && ln -s ~/dotfiles/config/pulse/default.pa ~/.config/pulse
-        echo 'default.pa was replaced sucessfully!!'
+        echo 'DEFAULT.PA was replaced sucessfully!!'
     else
         ln -s ~/dotfiles/config/pulse/default.pa ~/.config/pulse
-        echo 'default file was linked sucessfully!!'
+        echo 'DEFAULT.PA was linked sucessfully!!'
     fi
 else
     mkdir ~/.config/pulse
     ln -s ~/dotfiles/config/pulse/client.conf ~/.config/pulse
     ln -s ~/dotfiles/config/pulse/daemon.conf ~/.config/pulse
     ln -s ~/dotfiles/config/pulse/default.pa ~/.config/pulse
-    echo 'pulse folde was created and linked sucessfully!!'
+    echo 'PULSE directory was created and linked sucessfully!!'
 fi
 
 THUNAR=~/.config/Thunar
 if [ -d "$THUNAR" ]; then
     rm -r $THUNAR && ln -s ~/dotfiles/config/Thunar ~/.config
-    echo 'it works Thunar'
+    echo 'THUNAR directory was replaced sucessfully!!'
 else
     ln -s ~/dotfiles/config/Thunar ~/.config
-    echo 'huh Thunar'
+    echo 'THUNAR directory was linked sucessfully!!'
 fi
 
 XFCE=~/.config/xfce4
 if [ -d "$XFCE" ]; then
     rm -r $XFCE && ln -s ~/dotfiles/config/xfce4 ~/.config
-    echo 'it works xfce4'
+    echo 'XFCE4 directory was replaced sucessfully!!'
 else
     ln -s ~/dotfiles/config/xfce4 ~/.config
-    echo 'huh xfce4'
+    echo 'XFCE4 directory was linked sucessfully!!'
 fi
 
 REDSHIFT=~/.config/redshift.conf
 if [ -f "$REDSHIFT" ]; then
     rm $REDSHIFT && ln -s ~/dotfiles/config/redshift.conf ~/.config
-    echo 'it works redshift'
+    echo 'REDSHIFT file was replaced sucessfully!!'
 else
     ln -s ~/dotfiles/config/redshift.conf ~/.config
-    echo 'huh red'
+    echo 'REDSHIFT file was linked sucessfully!!'
 fi
 
 STARSHIP=~/.config/starship.toml
 if [ -f "$STARSHIP" ]; then
     rm $STARSHIP && ln -s ~/dotfiles/config/starship.toml ~/.config
-    echo 'it works star'
+    echo 'STARSHIP file was replaced sucessfully!!'
 else
     ln -s ~/dotfiles/config/starship.toml ~/.config
-    echo 'huh star'
+    echo 'STARSHIP file was linked sucessfully!!'
 fi
