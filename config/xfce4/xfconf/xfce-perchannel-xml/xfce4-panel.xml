@@ -35,6 +35,7 @@
         <value type="int" value="8"/>
         <value type="int" value="11"/>
         <value type="int" value="18"/>
+        <value type="int" value="15"/>
         <value type="int" value="13"/>
       </property>
       <property name="mode" type="uint" value="1"/>
@@ -124,10 +125,12 @@
     </property>
     <property name="plugin-9" type="string" value="launcher">
       <property name="items" type="array">
+        <value type="string" value="16351638861.desktop"/>
       </property>
     </property>
     <property name="plugin-11" type="string" value="launcher">
       <property name="items" type="array">
+        <value type="string" value="16351639353.desktop"/>
       </property>
     </property>
     <property name="plugin-13" type="string" value="separator">
@@ -135,6 +138,7 @@
     </property>
     <property name="plugin-18" type="string" value="launcher">
       <property name="items" type="array">
+        <value type="string" value="16351639494.desktop"/>
       </property>
     </property>
     <property name="plugin-5" type="string" value="whiskermenu"/>
@@ -174,7 +178,7 @@
     </property>
     <property name="plugin-3" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="firefox.instance1126;firefox.instance1136;firefox.instance1165;firefox.instance1174;firefox.instance1177;firefox.instance1186;firefox.instance1192;firefox.instance1194;firefox.instance1197;firefox.instance1205;firefox.instance1208;firefox.instance1215;firefox.instance1216;firefox.instance1237;firefox.instance1243;firefox.instance1257;firefox.instance1264;firefox.instance1273;firefox.instance1274;firefox.instance1299;firefox.instance1306;firefox.instance1313;firefox.instance1634;firefox.instance1976;firefox.instance2200;firefox.instance3969;firefox.instance4249;firefox.instance5570;firefox.instance5713;firefox.instance5771;firefox.instance8099;firefox.instance9154;vlc"/>
+      <property name="mpris-players" type="string" value="firefox.instance1126;firefox.instance1136;firefox.instance1143;firefox.instance1165;firefox.instance1174;firefox.instance1177;firefox.instance1186;firefox.instance1192;firefox.instance1194;firefox.instance1197;firefox.instance1205;firefox.instance1208;firefox.instance1215;firefox.instance1216;firefox.instance1237;firefox.instance1243;firefox.instance1257;firefox.instance1264;firefox.instance1273;firefox.instance1274;firefox.instance1299;firefox.instance1306;firefox.instance1313;firefox.instance1634;firefox.instance1792;firefox.instance1976;firefox.instance2200;firefox.instance22761;firefox.instance3969;firefox.instance4249;firefox.instance5570;firefox.instance5713;firefox.instance5771;firefox.instance8099;firefox.instance9154;vlc"/>
     </property>
     <property name="plugin-4" type="string" value="weather">
       <property name="msl" type="int" value="821"/>
@@ -246,6 +250,11 @@
     <property name="plugin-14" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
       <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-15" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16351640206.desktop"/>
+      </property>
     </property>
   </property>
 </channel>

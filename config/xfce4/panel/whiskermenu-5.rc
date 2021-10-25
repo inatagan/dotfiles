@@ -1,5 +1,5 @@
 favorites=firefox-esr.desktop,xfce4-terminal-emulator.desktop,xfce4-file-manager.desktop,gimp.desktop,org.qbittorrent.qBittorrent.desktop,code.desktop,xfce4-taskmanager.desktop,vlc.desktop,xfce4-screenshooter.desktop
-recent=virt-manager.desktop,xfce4-screenshooter.desktop,gimp.desktop,pavucontrol.desktop,mousepad.desktop,xfce4-about.desktop,grub-customizer.desktop
+recent=virt-manager.desktop,debian-uxterm.desktop,debian-xterm.desktop,xfce4-screenshooter.desktop,gimp.desktop,pavucontrol.desktop,mousepad.desktop,xfce4-about.desktop,grub-customizer.desktop
 button-icon=xfce4-whiskermenu
 button-single-row=false
 show-button-title=false
