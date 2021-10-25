@@ -77,6 +77,13 @@ else
     ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was linked sucessfully!!' || echo 'THUNAR was not linked!!'
 fi
 
+TMUX=~/.config/tmux
+if [ -d "$TMUX" ]; then
+    rm -r $TMUX && ln -s ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was replaced sucessfully!!' || echo 'TMUX was not replaced!!'
+else
+    ln -s ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was linked sucessfully!!' || echo 'TMUX was not linked!!'
+fi
+
 XFCE=~/.config/xfce4
 if [ -d "$XFCE" ]; then
     rm -r $XFCE && ln -s ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was replaced sucessfully!!' || echo 'XFCE4 was not replaced!!'

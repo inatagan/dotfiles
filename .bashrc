@@ -120,3 +120,12 @@ PF_INFO="ascii title os kernel shell uptime de pkgs memory palette"; export PF_I
 # fnm
 export PATH=/home/ina/.fnm:$PATH
 eval "`fnm env`"
+
+# if tmux is executable, X is running, and not inside a tmux session, then try to attach.
+# if attachment fails, start a new session
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
+  [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
+fi
+
+### my aliases
+alias ee='tmux kill-server'
