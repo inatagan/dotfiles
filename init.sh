@@ -2,6 +2,13 @@
 # change permission
 # chmod +x init.sh
 # . ./scripts/msg.sh
+### TO DO ###
+# Refactor code
+# remove if else structures and
+# replace it with 'ln -s -f <source> <target>'
+# the -f flag alreay removes any content that might 
+# be at the destination path.
+#############
 BASHRC=~/.bashrc
 if [ -f "$BASHRC" ]; then
     rm ~/.bashrc && ln -s ~/dotfiles/.bashrc ~ && echo 'BASHRC was replaced sucessfully!!' || echo 'BASHRC was not replaced!!'
