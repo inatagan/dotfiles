@@ -44,6 +44,17 @@ Run any additional scripts you may want or install wanted software.
 
 `sudo systemctl start libvirtd`
 ### add user
-`sudo adduser$USER libvirt`
+    sudo adduser$USER libvirt
 
-`sudo adduser$USER libvirt-qemu`
+    sudo adduser$USER libvirt-qemu
+
+### GRUB colors
+Normal font : light-red
+
+Normal background : transparent
+
+Highlighted font : light-magenta
+
+Highlighted background : transparent
+
+Font : none
