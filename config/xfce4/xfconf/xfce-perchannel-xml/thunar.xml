@@ -4,9 +4,9 @@
   <property name="last-view" type="string" value="ThunarCompactView"/>
   <property name="last-icon-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_400_PERCENT"/>
   <property name="last-separator-position" type="int" value="120"/>
-  <property name="last-show-hidden" type="bool" value="false"/>
-  <property name="last-window-width" type="int" value="683"/>
-  <property name="last-window-height" type="int" value="338"/>
+  <property name="last-show-hidden" type="bool" value="true"/>
+  <property name="last-window-width" type="int" value="749"/>
+  <property name="last-window-height" type="int" value="475"/>
   <property name="last-window-maximized" type="bool" value="false"/>
   <property name="hidden-bookmarks" type="array">
     <value type="string" value="file:///home/ina/Desktop"/>
@@ -23,4 +23,6 @@
   <property name="hidden-devices" type="array">
     <value type="string" value="CE8CD6A28CD6847D"/>
   </property>
+  <property name="last-sort-column" type="string" value="THUNAR_COLUMN_NAME"/>
+  <property name="last-sort-order" type="string" value="GTK_SORT_ASCENDING"/>
 </channel>

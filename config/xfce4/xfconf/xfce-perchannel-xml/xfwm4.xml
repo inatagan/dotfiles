@@ -30,7 +30,7 @@
     <property name="frame_border_top" type="int" value="0"/>
     <property name="full_width_title" type="bool" value="true"/>
     <property name="horiz_scroll_opacity" type="bool" value="false"/>
-    <property name="inactive_opacity" type="int" value="80"/>
+    <property name="inactive_opacity" type="int" value="100"/>
     <property name="maximized_offset" type="int" value="0"/>
     <property name="mousewheel_rollup" type="bool" value="true"/>
     <property name="move_opacity" type="int" value="80"/>
@@ -38,7 +38,7 @@
     <property name="placement_ratio" type="int" value="40"/>
     <property name="popup_opacity" type="int" value="90"/>
     <property name="prevent_focus_stealing" type="bool" value="false"/>
-    <property name="raise_delay" type="int" value="250"/>
+    <property name="raise_delay" type="int" value="187"/>
     <property name="raise_on_click" type="bool" value="true"/>
     <property name="raise_on_focus" type="bool" value="false"/>
     <property name="raise_with_any_button" type="bool" value="true"/>
@@ -59,7 +59,7 @@
     <property name="snap_to_windows" type="bool" value="true"/>
     <property name="snap_width" type="int" value="20"/>
     <property name="vblank_mode" type="string" value="auto"/>
-    <property name="theme" type="string" value="sakura-dark"/>
+    <property name="theme" type="string" value="eva-01"/>
     <property name="tile_on_move" type="bool" value="true"/>
     <property name="title_alignment" type="string" value="center"/>
     <property name="title_font" type="string" value="Sans Bold 9"/>
@@ -87,5 +87,9 @@
       <value type="string" value="🦖️"/>
       <value type="string" value="Workspace 4"/>
     </property>
+    <property name="margin_right" type="int" value="2"/>
+    <property name="margin_left" type="int" value="2"/>
+    <property name="margin_bottom" type="int" value="2"/>
+    <property name="margin_top" type="int" value="0"/>
   </property>
 </channel>

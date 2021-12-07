@@ -46,16 +46,17 @@
       <property name="&lt;Super&gt;p" type="string" value="xfce4-display-settings --minimal"/>
       <property name="&lt;Primary&gt;Escape" type="string" value="xfdesktop --menu"/>
       <property name="override" type="bool" value="true"/>
-      <property name="&lt;Super&gt;t" type="string" value="xfce4-terminal"/>
       <property name="&lt;Super&gt;f" type="string" value="/usr/bin/thunar"/>
       <property name="&lt;Super&gt;w" type="string" value="/usr/bin/firefox"/>
       <property name="&lt;Super&gt;c" type="string" value="/usr/bin/code"/>
       <property name="&lt;Super&gt;d" type="string" value="/usr/bin/discord"/>
       <property name="&lt;Primary&gt;Up" type="string" value="pactl set-sink-volume @DEFAULT_SINK@ +5%"/>
       <property name="&lt;Primary&gt;Down" type="string" value="pactl set-sink-volume @DEFAULT_SINK@ -5%"/>
-      <property name="&lt;Super&gt;s" type="string" value="/usr/bin/xfce4-popup-whiskermenu"/>
       <property name="&lt;Super&gt;v" type="string" value="pavucontrol"/>
-      <property name="Print" type="string" value="xfce4-screenshooter -fm"/>
+      <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -fm"/>
+      <property name="Print" type="string" value="xfce4-screenshooter -f"/>
+      <property name="&lt;Super&gt;t" type="string" value="sakura"/>
+      <property name="&lt;Super&gt;s" type="string" value="/usr/bin/xfce4-popup-whiskermenu"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

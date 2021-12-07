@@ -20,7 +20,7 @@ conky.config = {
 	minimum_width = 220, minimum_height = 5,
 	maximum_width = 220,
 	default_color = '#800080',
-	color1 = 'red',
+	color1 = 'CF074C',
 	color2 = '0000FF',
 	default_shade_color = 'pink',
 	default_outline_color = 'pink',
@@ -37,8 +37,9 @@ conky.config = {
 conky.text = [[
 ${font Zekton:style=Bold:pixelsize=20}${alignc}${time %H:%M:%S}${font Zekton:size=8}
 ${font Zekton:style=Bold:pixelsize=10}${alignc}${time %A - %d/%m/%Y%n%tday %j week %U - %Z | %z}${font Zekton:size=8}
+#${font Zekton:style=Bold:pixelsize=10}${alignc}${time %A - %d/%m/%Y%n}${font Zekton:size=8}
 
-${font Zekton:style=Bold:pixelsize=16}${alignc} \`[T] / ${font Zekton:size=8}
+${font Zekton:style=Bold:pixelsize=16}${alignc} ₍ᐢ.  ̫.ᐢ₎ ${font Zekton:size=8}
 
 SYSTEM ${hr 1 }
 
@@ -49,7 +50,7 @@ Processes: ${alignr}$processes ($running_processes running)
 Load: ${alignr}$loadavg
 CPU ${alignc} ${freq}MHz / ${acpitemp}C ${alignr}(${cpu cpu1}%)
 $color1${cpubar 4 cpu1}$color
-$color2${cpugraph 000000 0000FF}$color
+$color2${cpugraph 000000 CF074C}$color
 RAM ${alignr}$mem / $memmax ($memperc%)
 $color1${membar 4}$color
 SWAP ${alignr}$swap / $swapmax ($swapperc%)
@@ -71,13 +72,13 @@ Root: $alignr ${fs_used /} / ${fs_size /} ($alignr${fs_free_perc /}%)
 $color1${fs_bar 4 /}$color
 Home: $alignr ${fs_used /home/} / ${fs_size /home} ($alignr${fs_free_perc /home}%)
 $color1${fs_bar 4 /home}$color
-HD I/O $color2 ${diskiograph /dev/sda 000000 0000FF}$color
+HD I/O $color2 ${diskiograph /dev/sda 000000 CF074C}$color
 
 NETWORK ${hr 1}${color}
 
 $gw_iface:
 Down ${downspeed enp6s0f5} k/s ${alignr}Up ${upspeed enp6s0f5} k/s
-$color2${downspeedgraph enp6s0f5 25,107 000000 0000FF} ${alignr}${upspeedgraph enp6s0f5 25,107 000000 0000FF}$color
+$color2${downspeedgraph enp6s0f5 25,107 000000 CF074C} ${alignr}${upspeedgraph enp6s0f5 25,107 000000 CF074C}$color
 Total ${totaldown enp6s0f5} ${alignr}Total ${totalup enp6s0f5}
 
 ]];

@@ -4,6 +4,7 @@
   <property name="applications" type="empty">
     <property name="known_applications" type="array">
       <value type="string" value="blueman"/>
+      <value type="string" value="Firefox"/>
       <value type="string" value="nm-applet"/>
       <value type="string" value="qBittorrent"/>
       <value type="string" value="thunar"/>
@@ -18,7 +19,7 @@
   <property name="notify-location" type="uint" value="2"/>
   <property name="log-level" type="uint" value="0"/>
   <property name="log-level-apps" type="uint" value="0"/>
-  <property name="theme" type="string" value="sakura-dark"/>
+  <property name="theme" type="string" value="eva-01"/>
   <property name="expire-timeout" type="int" value="3"/>
   <property name="initial-opacity" type="double" value="0.700000"/>
   <property name="do-slideout" type="bool" value="false"/>

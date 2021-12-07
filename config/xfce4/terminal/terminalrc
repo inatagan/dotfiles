@@ -27,8 +27,9 @@ MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=TRUE
-FontName=BigBlue_Terminal_437TT Nerd Font 10
+FontName=CaskaydiaCove Nerd Font 10
 ColorCursorForeground=#9999c1c1f1f1
-BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=0.900000
+DropdownAnimationTime=500
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 

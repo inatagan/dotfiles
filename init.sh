@@ -9,47 +9,23 @@
 # the -f flag alreay removes any content that might 
 # be at the destination path.
 #############
-BASHRC=~/.bashrc
-if [ -f "$BASHRC" ]; then
-    rm ~/.bashrc && ln -s ~/dotfiles/.bashrc ~ && echo 'BASHRC was replaced sucessfully!!' || echo 'BASHRC was not replaced!!'
-else
-    ln -s ~/dotfiles/.bashrc ~ && echo 'BASHRC was linked sucessfully!!' || echo 'BASHRC was not linked!!'
-fi
+#BASHRC=~/.bashrc
+ln -s -f ~/dotfiles/.bashrc ~ && echo 'BASHRC was linked sucessfully!!' || echo 'BASHRC was not linked!!'
 
-CONKYRC=~/.conkyrc
-if [ -f "$CONKYRC" ]; then
-    rm ~/.conkyrc && ln -s ~/dotfiles/.conkyrc ~ && echo 'CONKYRC was replaced sucessfully!!' || echo 'CONKYRC was not replaced!!'
-else
-    ln -s ~/dotfiles/.conkyrc ~ && echo 'CONKYRC was linked sucessfully!!' || echo 'CONKYRC was not linked!!'
-fi
+#CONKYRC=~/.conkyrc
+ln -s -f ~/dotfiles/.conkyrc ~ && echo 'CONKYRC was linked sucessfully!!' || echo 'CONKYRC was not linked!!'
 
-AUTOSTART=~/.config/autostart
-if [ -d "$AUTOSTART" ]; then
-    rm -r $AUTOSTART && ln -s ~/dotfiles/config/autostart ~/.config && echo 'AUTOSTART directory was replaced sucessfully!!' || echo 'AUTOSTART was not replaced!!'
-else
-    ln -s ~/dotfiles/config/autostart ~/.config && echo 'AUTOSTART files were linked sucessfully!!' || echo 'AUTOSTART was not linked!!'
-fi
+#AUTOSTART=~/.config/autostart
+ln -s -f ~/dotfiles/config/autostart ~/.config && echo 'AUTOSTART files were linked sucessfully!!' || echo 'AUTOSTART was not linked!!'
 
-GIT=~/.config/git
-if [ -d "$GIT" ]; then
-    rm -r $GIT && ln -s ~/dotfiles/config/git ~/.config && echo 'GIT directory was replaced sucessfully!!' || echo 'GIT was not replaced!!'
-else
-    ln -s ~/dotfiles/config/git ~/.config && echo 'GIT directory was linked sucessfully!!' || echo 'GIT was not linked!!'
-fi
+#GIT=~/.config/git
+ln -s -f ~/dotfiles/config/git ~/.config && echo 'GIT directory was linked sucessfully!!' || echo 'GIT was not linked!!'
 
-HTOP=~/.config/htop
-if [ -d "$HTOP" ]; then
-    rm -r $HTOP && ln -s ~/dotfiles/config/htop ~/.config && echo 'HTOP directory was replaced sucessfully' || echo 'HTOP was not replaced!!'
-else
-    ln -s ~/dotfiles/config/htop ~/.config && echo 'HTOP directory was linked sucessfully' || echo 'HTOP was not linked'
-fi
+#HTOP=~/.config/htop
+ln -s -f ~/dotfiles/config/htop ~/.config && echo 'HTOP directory was linked sucessfully' || echo 'HTOP was not linked'
 
-PAP=~/.config/papirus-folders
-if [ -d "$PAP" ]; then
-    rm -r $PAP && ln -s ~/dotfiles/config/papirus-folders ~/.config && echo 'PAPIRUS directory was replaced sucessfully' || echo 'PAPIRUS was not replaced!!'
-else
-    ln -s ~/dotfiles/config/papirus-folders ~/.config && echo 'PAPIRUS directory was linked sucessfully' || echo 'PAPIRUS was not linked!!'
-fi
+#PAP=~/.config/papirus-folders
+ln -s -f ~/dotfiles/config/papirus-folders ~/.config && echo 'PAPIRUS directory was linked sucessfully' || echo 'PAPIRUS was not linked!!'
 
 PULSE=~/.config/pulse
 if [ -d "$PULSE" ]; then
@@ -77,37 +53,17 @@ else
     echo 'PULSE directory was created and linked sucessfully!!'
 fi
 
-THUNAR=~/.config/Thunar
-if [ -d "$THUNAR" ]; then
-    rm -r $THUNAR && ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was replaced sucessfully!!' || echo 'THUNAR was not replaced!!'
-else
-    ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was linked sucessfully!!' || echo 'THUNAR was not linked!!'
-fi
+#THUNAR=~/.config/Thunar
+ln -s -f ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was linked sucessfully!!' || echo 'THUNAR was not linked!!'
 
-TMUX=~/.config/tmux
-if [ -d "$TMUX" ]; then
-    rm -r $TMUX && ln -s ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was replaced sucessfully!!' || echo 'TMUX was not replaced!!'
-else
-    ln -s ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was linked sucessfully!!' || echo 'TMUX was not linked!!'
-fi
+#TMUX=~/.config/tmux
+ln -s -f ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was linked sucessfully!!' || echo 'TMUX was not linked!!'
 
-XFCE=~/.config/xfce4
-if [ -d "$XFCE" ]; then
-    rm -r $XFCE && ln -s ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was replaced sucessfully!!' || echo 'XFCE4 was not replaced!!'
-else
-    ln -s ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was linked sucessfully!!' || echo 'XFCE4 was not linked!!'
-fi
+#XFCE=~/.config/xfce4
+ln -s -f ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was linked sucessfully!!' || echo 'XFCE4 was not linked!!'
 
-REDSHIFT=~/.config/redshift.conf
-if [ -f "$REDSHIFT" ]; then
-    rm $REDSHIFT && ln -s ~/dotfiles/config/redshift.conf ~/.config && echo 'REDSHIFT file was replaced sucessfully!!' || echo 'REDSHIFT was not replaced!!'
-else
-    ln -s ~/dotfiles/config/redshift.conf ~/.config && echo 'REDSHIFT file was linked sucessfully!!' || echo 'REDSHIFT was not linked!!'
-fi
+#REDSHIFT=~/.config/redshift.conf
+ln -s -f ~/dotfiles/config/redshift.conf ~/.config && echo 'REDSHIFT file was linked sucessfully!!' || echo 'REDSHIFT was not linked!!'
 
-STARSHIP=~/.config/starship.toml
-if [ -f "$STARSHIP" ]; then
-    rm $STARSHIP && ln -s ~/dotfiles/config/starship.toml ~/.config && echo 'STARSHIP file was replaced sucessfully!!' || echo 'STARSHIP was not replaced!!'
-else
-    ln -s ~/dotfiles/config/starship.toml ~/.config && echo 'STARSHIP file was linked sucessfully!!' || echo 'STARSHIP was not linked!!'
-fi
+#STARSHIP=~/.config/starship.toml
+ln -s -f ~/dotfiles/config/starship.toml ~/.config && echo 'STARSHIP file was linked sucessfully!!' || echo 'STARSHIP was not linked!!'
