@@ -4,6 +4,7 @@ sudo mkdir /opt/firefox
 sudo tar xjf firefox-installer.tar.bz2 -C /opt/firefox/
 sudo mv /usr/lib/firefox-esr/firefox-esr /usr/lib/firefox-esr/firefox-esr_bak
 sudo ln -s /opt/firefox/firefox/firefox /usr/lib/firefox-esr/firefox-esr
+sudo apt-mark hold firefox-esr
 rm firefox-installer.tar.bz2
 echo 'Firefox was installed sucessfully!!'
 
