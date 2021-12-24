@@ -53,14 +53,24 @@ else
     echo 'PULSE directory was created and linked sucessfully!!'
 fi
 
-#THUNAR=~/.config/Thunar
-ln -s -f ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was linked sucessfully!!' || echo 'THUNAR was not linked!!'
+# workaround for systemd not killing xconfd
+THUNAR=~/.config/Thunar
+if [ -d "$THUNAR" ]; then
+    rm -r $THUNAR && ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was replaced sucessfully!!' || echo 'THUNAR was not replaced!!'
+else
+    ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was linked sucessfully!!' || echo 'THUNAR was not linked!!'
+fi
 
 #TMUX=~/.config/tmux
 ln -s -f ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was linked sucessfully!!' || echo 'TMUX was not linked!!'
 
-#XFCE=~/.config/xfce4
-ln -s -f ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was linked sucessfully!!' || echo 'XFCE4 was not linked!!'
+# workaround for systemd not killing xconfd
+XFCE=~/.config/xfce4
+if [ -d "$XFCE" ]; then
+    rm -r $XFCE && ln -s ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was replaced sucessfully!!' || echo 'XFCE4 was not replaced!!'
+else
+    ln -s ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was linked sucessfully!!' || echo 'XFCE4 was not linked!!'
+fi
 
 #REDSHIFT=~/.config/redshift.conf
 ln -s -f ~/dotfiles/config/redshift.conf ~/.config && echo 'REDSHIFT file was linked sucessfully!!' || echo 'REDSHIFT was not linked!!'
