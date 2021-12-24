@@ -80,5 +80,4 @@ $gw_iface:
 Down ${downspeed enp6s0f5} k/s ${alignr}Up ${upspeed enp6s0f5} k/s
 $color2${downspeedgraph enp6s0f5 25,107 000000 CF074C} ${alignr}${upspeedgraph enp6s0f5 25,107 000000 CF074C}$color
 Total ${totaldown enp6s0f5} ${alignr}Total ${totalup enp6s0f5}
-
 ]];

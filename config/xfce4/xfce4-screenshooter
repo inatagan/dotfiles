@@ -1,6 +1,6 @@
 app=/usr/lib/firefox-esr/firefox-esr
 last_user=
-screenshot_dir=file:/home/ina/.themes/eva-01/pictures
+screenshot_dir=file:/home/ina/Pictures/AL-Xmas-Stream
 action=1
 delay=5
 region=2
