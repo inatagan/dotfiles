@@ -25,7 +25,7 @@
       <property name="disable-struts" type="bool" value="false"/>
       <property name="autohide-behavior" type="uint" value="0"/>
       <property name="length-adjust" type="bool" value="false"/>
-      <property name="background-image" type="string" value="/home/ina/.themes/eva-01/panel-background/green0-33ff00/panel-bg-1348x24.png"/>
+      <property name="background-image" type="string" value="/home/ina/.themes/eva-01/panel-background/green0-33ff00/panel-bg-1366x24.png"/>
     </property>
     <property name="dark-mode" type="bool" value="false"/>
     <property name="panel-2" type="empty">
@@ -35,7 +35,6 @@
       <property name="position-locked" type="bool" value="true"/>
       <property name="length" type="uint" value="41"/>
       <property name="plugin-ids" type="array">
-        <value type="int" value="20"/>
         <value type="int" value="5"/>
         <value type="int" value="7"/>
         <value type="int" value="22"/>
@@ -72,7 +71,6 @@
         <value type="int" value="12"/>
         <value type="int" value="4"/>
         <value type="int" value="10"/>
-        <value type="int" value="19"/>
       </property>
     </property>
     <property name="panel-4" type="empty">
@@ -192,8 +190,7 @@
     </property>
     <property name="plugin-12" type="string" value="systray">
       <property name="known-legacy-items" type="array">
-        <value type="string" value="bluetooth active
-&lt;b&gt;2 active connections&lt;/b&gt;"/>
+        <value type="string" value="bluetooth active &lt;b&gt;2 active connections&lt;/b&gt;"/>
         <value type="string" value="task manager"/>
         <value type="string" value="thunar"/>
         <value type="string" value="redshift-gtk"/>
@@ -209,13 +206,6 @@
     <property name="plugin-14" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
       <property name="expand" type="bool" value="false"/>
-    </property>
-    <property name="plugin-19" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-      <property name="expand" type="bool" value="false"/>
-    </property>
-    <property name="plugin-20" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
     </property>
   </property>
 </channel>

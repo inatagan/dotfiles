@@ -58,6 +58,7 @@
       <property name="&lt;Super&gt;t" type="string" value="sakura"/>
       <property name="&lt;Super&gt;s" type="string" value="/usr/bin/xfce4-popup-whiskermenu"/>
       <property name="&lt;Super&gt;q" type="string" value="/usr/bin/qbittorrent"/>
+      <property name="&lt;Super&gt;e" type="string" value="firefox -no-remote -P &quot;mod&quot;"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

@@ -130,3 +130,23 @@ eval "`fnm env`"
 ### my aliases
 alias ee='tmux kill-server'
 alias pfetch='pfetch | sed 's/GNU/UwU/g''
+alias bot='ps -aef | grep python'
+alias summonsign_db_bak='scp ina@pi0.local:/home/ina/firekeeper/summonsign.db /home/ina/workspace/firekeeper/'
+
+
+### Python pip path
+export PATH="$HOME/.local/bin:$PATH"
+
+### turn off the system bell in Xorg
+#if [ -n "$DISPLAY" ]; then
+#  xset b off
+#fi
+
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
+# fnm
+# export PATH="/home/ina/.fnm:$PATH"
+# eval "`fnm env`"
