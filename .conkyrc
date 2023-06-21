@@ -1,37 +1,49 @@
 conky.config = {
+	--Various settings
 	background = true,
-	font = 'Zekton:size=7',
-	font = 'Zekton:size=7',
-	use_xft = true,
-	xftalpha = 0.1,
+	cpu_avg_samples = 2,
+	double_buffer = true,
+	no_buffers = true,
 	update_interval = 1.0,
 	total_run_times = 0,
+	override_utf8_locale = true,
+	use_spacer = 'none',
+
+	--Placement
+	alignment = 'top_right',
+	gap_x = 10,
+	gap_y = 45,
+	minimum_height = 1300,
+	minimum_width = 280,
+	maximum_width = 280,
+
+	--Graphical
+	draw_borders = false,
+	draw_graph_borders = false,
+	draw_shades = false,
+	draw_outline = false,
+	default_shade_color = 'pink',
+	default_outline_color = 'pink',
+
+	--Textual
+	font = 'Zekton:size=9',
+	use_xft = true,
+	xftalpha = 0.1,
+	uppercase = false,-- set to yes if you want all text to be in uppercase
+
+	--Windows
 	own_window = true,
-	own_window_type = 'desktop',
+	own_window_type = 'desktop',-- # options are: normal/override/dock/desktop/panel
 	own_window_argb_visual = true,
 	own_window_argb_value = 160,
 	own_window_transparent = true,
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-	double_buffer = true,
-	draw_shades = false,
-	draw_outline = false,
-	draw_borders = false,
-	draw_graph_borders = false,
-	minimum_width = 220, minimum_height = 5,
-	maximum_width = 220,
-	default_color = '#800080',
-	color1 = 'CF074C',
-	color2 = '0000FF',
-	default_shade_color = 'pink',
-	default_outline_color = 'pink',
-	alignment = 'top_right',
-	gap_x = 10,
-	gap_y = 50,
-	no_buffers = true,
-	cpu_avg_samples = 2,
-	override_utf8_locale = true,
-	uppercase = false,-- set to yes if you want all text to be in uppercase
-	use_spacer = 'none'
+
+	--Colours
+	default_color = '#916CAD', 		-- default color and border color
+	color1 = '916CAD', 				-- title_color
+	color2 = 'F08B18', 				-- top memory or processe, graphs
+	color3 = 'CF074C', 				-- text color and graph bar color
 };
 
 conky.text = [[
@@ -40,44 +52,115 @@ ${font Zekton:style=Bold:pixelsize=10}${alignc}${time %A - %d/%m/%Y%n%tday %j we
 #${font Zekton:style=Bold:pixelsize=10}${alignc}${time %A - %d/%m/%Y%n}${font Zekton:size=8}
 
 ${font Zekton:style=Bold:pixelsize=16}${alignc} ₍ᐢ.  ̫.ᐢ₎ ${font Zekton:size=8}
-
-SYSTEM ${hr 1 }
-
-Hostname: $alignr$nodename
-Kernel: $alignr$kernel
-Uptime: $alignr$uptime
-Processes: ${alignr}$processes ($running_processes running)
-Load: ${alignr}$loadavg
-CPU ${alignc} ${freq}MHz / ${acpitemp}C ${alignr}(${cpu cpu1}%)
-$color1${cpubar 4 cpu1}$color
-$color2${cpugraph 000000 CF074C}$color
-RAM ${alignr}$mem / $memmax ($memperc%)
-$color1${membar 4}$color
-SWAP ${alignr}$swap / $swapmax ($swapperc%)
-$color1${swapbar 4}$color
-
-Highest CPU $alignr CPU% MEM%
-${top name 1}$alignr${top cpu 1}${top mem 1}
-${top name 2}$alignr${top cpu 2}${top mem 2}
-${top name 3}$alignr${top cpu 3}${top mem 3}
-
-Highest MEM $alignr CPU% MEM%
-${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
-${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
-${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
-
-FILESYSTEM ${hr 1}${color}
-
+#------------+
+# INFO
+#------------+
+${color1}${font :size=14:bold}SYSTEM ${hr 2 }${font}
+${voffset 5}${color1}OS :$alignr${color3}${execi 6000 lsb_release -d | grep 'Descr'|awk {'print $2 " " $3" " $4" " $5'}}
+${voffset 2}${color1}Kernel :$alignr${color3} $kernel
+${voffset 2}${color1}Uptime :$alignr${color3} $uptime
+${voffset 2}${color1}Hostname : $alignr${color3} $nodename
+${voffset 2}${color1}Processes : ${alignr}${color3} $processes ($running_processes running)
+${voffset 2}${color1}Load : ${alignr}${color3} $loadavg
+#------------+
+#CPU
+#------------+
+${voffset 10}${color1}${font :size=14:bold}CPU ${hr 2}${font}
+${voffset 5}${color1}Name : ${color3}$alignr${execi 6000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq | cut -c 1-16}
+${voffset 2}${color1}Freq : ${color3}${freq_g} GHz$alignr${color1}Usage : ${color3}${cpu}%
+${voffset 2}${color1}Temp : ${color2}${execi 5 sensors | grep Tdie: | cut -c 16-19}C ${alignr}${color3}(${machine})
+#$color3${cpubar 4 cpu1}$color
+$color2${cpugraph 000000 F08B18}$color
+#------------+
+#CPU CORES
+#------------+
+${voffset 10}${color1}CORES ${stippled_hr 3 3}
+${voffset 5}${color1} 1${goto 25}${color3}${cpu cpu1}%${goto 55}${voffset -5}${color3}${cpugraph cpu1 13, 70 000000 F08B18 -l}${goto 150}${voffset 5}${color1} 2${goto 175}${color3}${cpu cpu2}%${goto 205}${color3}${cpugraph cpu2 13, 70 000000 F08B18 -l}
+${voffset 2}${color1} 3${goto 25}${color3}${cpu cpu3}%${goto 55}${voffset -5}${color3}${cpugraph cpu3 13, 70 000000 F08B18 -l}${goto 150}${voffset 0}${color1} 4${goto 175}${color3}${cpu cpu4}%${goto 205}${color3}${cpugraph cpu4 13, 70 000000 F08B18 -l}
+${voffset 2}${color1} 5${goto 25}${color3}${cpu cpu5}%${goto 55}${voffset -5}${color3}${cpugraph cpu5 13, 70 000000 F08B18 -l}${goto 150}${voffset 0}${color1} 6${goto 175}${color3}${cpu cpu6}%${goto 205}${color3}${cpugraph cpu6 13, 70 000000 F08B18 -l}
+${voffset 2}${color1} 7${goto 25}${color3}${cpu cpu7}%${goto 55}${voffset -5}${color3}${cpugraph cpu7 13, 70 000000 F08B18 -l}${goto 150}${voffset 0}${color1} 8${goto 175}${color3}${cpu cpu8}%${goto 205}${color3}${cpugraph cpu8 13, 70 000000 F08B18 -l}
+${voffset 2}${color1} 9${goto 25}${color3}${cpu cpu9}%${goto 55}${voffset -5}${color3}${cpugraph cpu9 13, 70 000000 F08B18 -l}${goto 150}${voffset 0}${color1}10${goto 175}${color3}${cpu cpu10}%${goto 205}${color3}${cpugraph cpu10 13, 70 000000 F08B18 -l}
+${voffset 2}${color1}11${goto 25}${color3}${cpu cpu11}%${goto 55}${voffset -5}${color3}${cpugraph cpu11 13, 70 000000 F08B18 -l}${goto 150}${voffset 0}${color1}12${goto 175}${color3}${cpu cpu12}%${goto 205}${color3}${cpugraph cpu12 13, 70 000000 F08B18 -l}
+#------------+
+#TEMPS
+#------------+
+#${voffset 10}${color1}${font :size=14:bold}TEMPS ${hr 2}${font}
+#${voffset 5}${color1}CPU : ${color3}${execi 5 sensors | grep Tdie: | cut -c 16-19}°C$alignr${color1}NVME : ${color3}${execi 5 nvme smart-log /dev/nvme0n1 | grep '^temperature' | cut -d ":" -f 2 | cut -d " " -f 2}°C
+#${voffset 2}${color1}GPU : ${color3}${nvidia temp}°C$alignr${color1}HDD :${color3}${execi 5 hddtemp /dev/sda1 | cut -d ":" -f 3}
+#------------+
+# PROCESSES
+#------------+
+${voffset 10}${color1}${font :size=14:bold}PROCESSES ${hr 2}${font}
+${voffset 5}${color1}Name${goto 180}CPU%${alignr}MEM%
+${color2}${top name 1} ${goto 180}${top cpu 1}${alignr}${top mem 1}${color3}
+${top name 2} ${goto 180}${top cpu 2}${alignr}${top mem 2}
+${top name 3} ${goto 180}${top cpu 3}${alignr}${top mem 3}
+${top name 4} ${goto 180}${top cpu 4}${alignr}${top mem 4}
+${top name 5} ${goto 180}${top cpu 5}${alignr}${top mem 5}
+#------------+
+# MEMORY
+#------------+
+${voffset 10}${color1}${font :size=14:bold}MEMORY ${hr 2}${font}
+${voffset 5}${color1}Used: ${color3}$mem ($memperc%)${color1}${alignr}Free: ${color3}$memeasyfree
+${color2}${membar}
+${voffset 5}${color1}Name${goto 180}MEM%${alignr}MEM
+${color2}${top_mem name 1} ${goto 180}${top_mem mem 1}${alignr}${top_mem mem_res 1}${color3}
+${top_mem name 2} ${goto 180}${top_mem mem 2}${alignr}${top_mem mem_res 2}
+${top_mem name 3} ${goto 180}${top_mem mem 3}${alignr}${top_mem mem_res 3}
+${top_mem name 4} ${goto 180}${top_mem mem 4}${alignr}${top_mem mem_res 4}
+${top_mem name 5} ${goto 180}${top_mem mem 5}${alignr}${top_mem mem_res 5}
+#RAM ${alignr}$mem / $memmax ($memperc%)
+#$color3${membar 4}$color
+#SWAP ${alignr}$swap / $swapmax ($swapperc%)
+#$color3${swapbar 4}$color
+#Highest CPU $alignr CPU% MEM%
+#${top name 1}$alignr${top cpu 1}${top mem 1}
+#${top name 2}$alignr${top cpu 2}${top mem 2}
+#${top name 3}$alignr${top cpu 3}${top mem 3}
+#Highest MEM $alignr CPU% MEM%
+#${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
+#${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
+#${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+#------------+
+# GPU
+#------------+
+#${voffset 10}${color1}${font :size=14:bold}VIDEO ${hr 2}${font}
+#${voffset 5}${color1}GPU :$alignr${color3}${execi 6000 nvidia-smi --query-gpu=gpu_name --format=csv,noheader,nounits}
+#${color1}Driver :$alignr${color3}${execi 6000 nvidia-smi --query-gpu=driver_version --format=csv,noheader,nounits}
+#${color1}Utilization :$alignr${color3}${exec nvidia-smi -i 0 | grep % | cut -c 61-63} %
+#${color1}VRAM Utilization :$alignr${color3}${exec nvidia-smi -i 0| grep % | cut -c 37-40} MB
+#------------+
+# DISK
+#------------+
+${voffset 10}${color1}${font :size=14:bold}DISK ${hr 2}${font}
+# NVME
+#${voffset 5}${color1}NVME ${stippled_hr 3 3}
+#${voffset 5}${color1}Used: ${color3}${fs_used /}${color1}${goto 200}Free:${goto 250}${color3}${fs_free /}
+#${color2}${fs_bar /}
+#${voffset 2}${color1}Read: ${color3}${diskio_read nvme0n1}${goto 200}${color1}Write:${goto 250}${color3}${diskio_write nvme0n1}
+#${color2}${diskiograph_read nvme0n1 40,130} ${alignr}${diskiograph_write nvme0n1 40,130}
+# HDD
+#${voffset 7}${color1}HDD ${stippled_hr 3 3}
+#${voffset 5}${color1}Used: ${color3}${fs_used /media/zkucis/HDD}${color1}${goto 200}Free:${goto 250}${color3}${fs_free /media/zkucis/HDD}
+#${color2}${fs_bar /media/zkucis/HDD}
+#${voffset 2}${color1}Read: ${color3}${diskio_read /dev/sda1}${goto 200}${color1}Write:${goto 250}${color3}${diskio_write /dev/sda}
+#${color2}${diskiograph_read /dev/sda 40,130} ${alignr}${diskiograph_write /dev/sda 40,130}
+#FILESYSTEM ${hr 1}${color}
 Root: $alignr ${fs_used /} / ${fs_size /} ($alignr${fs_free_perc /}%)
-$color1${fs_bar 4 /}$color
+$color2${fs_bar 4 /}$color
 Home: $alignr ${fs_used /home/} / ${fs_size /home} ($alignr${fs_free_perc /home}%)
-$color1${fs_bar 4 /home}$color
-HD I/O $color2 ${diskiograph /dev/sda 000000 CF074C}$color
-
-NETWORK ${hr 1}${color}
-
-$gw_iface:
-Down ${downspeed enp6s0f5} k/s ${alignr}Up ${upspeed enp6s0f5} k/s
-$color2${downspeedgraph enp6s0f5 25,107 000000 CF074C} ${alignr}${upspeedgraph enp6s0f5 25,107 000000 CF074C}$color
-Total ${totaldown enp6s0f5} ${alignr}Total ${totalup enp6s0f5}
+$color2${fs_bar 4 /home}$color
+HD I/O $color2 ${diskiograph /dev/sda 000000 F08B18}$color
+#------------+
+# NETWORK
+#------------+
+${voffset 10}${color1}${font :size=14:bold}NETWORK ${hr 2}${font}
+#${voffset 5}${color3}Up: ${upspeedf enp8s0} KiB/s${alignr}Down: ${downspeedf enp8s0} KiB/s
+#${color2}${upspeedgraph enp8s0 40,130 -l}$alignr${downspeedgraph enp8s0 40, 130 -l}
+#------------+
+#NETWORK ${hr 1}${color}
+#$gw_iface:
+${voffset 5}${color3}Down ${downspeed enp8s0}/s ${alignr}Up ${upspeed enp8s0}/s
+${color2}${downspeedgraph enp8s0 40,130 000000 F08B18 -l} ${alignr}${upspeedgraph enp8s0 40,130 000000 F08B18 -l}$color
+Total ${totaldown enp8s0} ${alignr}Total ${totalup enp8s0}
 ]];

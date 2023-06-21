@@ -1,6 +1,6 @@
 app=/usr/lib/firefox-esr/firefox-esr
 last_user=
-screenshot_dir=file:/home/ina/Downloads/discord
+screenshot_dir=file:/home/ina/Pictures
 action=1
 delay=3
 region=3
