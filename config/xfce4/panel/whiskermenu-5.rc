@@ -1,5 +1,5 @@
 favorites=firefox-esr.desktop,xfce4-terminal-emulator.desktop,xfce4-file-manager.desktop,gimp.desktop,org.qbittorrent.qBittorrent.desktop,code.desktop,xfce4-taskmanager.desktop,vlc.desktop,xfce4-screenshooter.desktop
-recent=virt-manager.desktop,steam.desktop,Dragon's Dogma Dark Arisen.desktop,vlc.desktop,blueman-manager.desktop,blueman-adapters.desktop,gparted.desktop,chromium.desktop,firefox-esr.desktop,gimp.desktop
+recent=appimagelaunchersettings.desktop,virt-manager.desktop,steam.desktop,gparted.desktop,io.github.benjamimgois.goverlay.desktop,appimagekit_843936ee5229659dc4235996c7bfe6ba-RPCS3.desktop,vlc.desktop,blueman-manager.desktop,blueman-adapters.desktop,grub-customizer.desktop
 button-title=💠️
 button-icon=xfce4-whiskermenu
 button-single-row=false

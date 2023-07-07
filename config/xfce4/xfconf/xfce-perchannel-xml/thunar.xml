@@ -18,7 +18,7 @@
   <property name="last-statusbar-visible" type="bool" value="true"/>
   <property name="last-compact-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_25_PERCENT"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_25_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,126,50,50,904,50,50,75,50,140"/>
+  <property name="last-details-view-column-widths" type="string" value="50,126,50,50,641,50,50,75,50,86"/>
   <property name="last-menubar-visible" type="bool" value="true"/>
   <property name="hidden-devices" type="array">
     <value type="string" value="CE8CD6A28CD6847D"/>
