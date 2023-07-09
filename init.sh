@@ -65,14 +65,19 @@ fi
 ln -s -f ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was linked sucessfully!!' || echo 'TMUX was not linked!!'
 
 # workaround for systemd not killing xconfd
+# shut down the panel first
+xfce4-panel --quit
+# kill the xfce4 configuration daemon
+pkill xfconfd
+# link config files
 XFCE=~/.config/xfce4
 if [ -d "$XFCE" ]; then
-    rm -r $XFCE && ln -s ~/dotfiles/config/xfce4 ~/.config && xfce4-panel -r && echo 'XFCE4 directory was replaced sucessfully!!' || echo 'XFCE4 was not replaced!!'
+    rm -rf $XFCE && ln -s ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was replaced sucessfully!!' || echo 'XFCE4 was not replaced!!'
 else
-    ln -s ~/dotfiles/config/xfce4 ~/.config && xfce4-panel -r && echo 'XFCE4 directory was linked sucessfully!!' || echo 'XFCE4 was not linked!!'
+    ln -s ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was linked sucessfully!!' || echo 'XFCE4 was not linked!!'
 fi
 # restart xfce panel
-# xfce4-panel -r
+xfce4-panel
 
 #REDSHIFT=~/.config/redshift.conf
 ln -s -f ~/dotfiles/config/redshift.conf ~/.config && echo 'REDSHIFT file was linked sucessfully!!' || echo 'REDSHIFT was not linked!!'
