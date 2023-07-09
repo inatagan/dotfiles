@@ -112,14 +112,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-### my config
-eval "$(starship init bash)"
-### pfetch config variables
-PF_INFO="ascii title os kernel shell uptime de pkgs memory palette"; export PF_INFO
+### my starship shell config
+#eval "$(starship init bash)"
 
-# fnm
-export PATH=/home/ina/.fnm:$PATH
-eval "`fnm env`"
+### pfetch config variables
+#PF_INFO="ascii title os kernel shell uptime de pkgs memory palette"; export PF_INFO
 
 # if tmux is executable, X is running, and not inside a tmux session, then try to attach.
 # if attachment fails, start a new session
@@ -144,8 +141,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 
 # Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+#export GEM_HOME="$HOME/gems"
+#export PATH="$HOME/gems/bin:$PATH"
 
 # fnm
 # export PATH="/home/ina/.fnm:$PATH"
