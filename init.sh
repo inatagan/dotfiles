@@ -10,9 +10,9 @@
 # be at the destination path.
 #############
 
-#Install themes
+## #Install themes
 ICONS=~/.icons
-# extraxting cursor files
+### extraxting cursor files
 if [ -d "$ICONS" ]; then
     for a in themes/cursors/*.tar.gz
     do
@@ -26,7 +26,7 @@ else
     done
 fi
 
-#extracting icons themes
+### extracting icons themes
 if [ -d "$ICONS" ]; then
     for a in themes/icons_pack/*.tar.xz
     do
@@ -40,7 +40,7 @@ else
     done
 fi
 
-#my default fonts
+### my default fonts
 FONTS=~/.fonts
 if [ -d "$FONTS" ]; then
     for a in fonts/*.zip
@@ -55,7 +55,7 @@ else
     done
 fi
 
-#my default theme
+### my default theme
 THEMES=~/.themes
 if [ -d "$THEMES" ]; then
     git clone https://github.com/inatagan/eva-01.git ~/.themes/eva-01
@@ -64,25 +64,26 @@ else
     git clone https://github.com/inatagan/eva-01.git ~/.themes/eva-01
 fi
 
-#BASHRC=~/.bashrc --ALIASES-ONLY
+### BASHRC=~/.bashrc --ALIASES-ONLY
 #ln -s -f ~/dotfiles/.bashrc ~ && echo 'BASHRC was linked sucessfully!!' || echo 'BASHRC was not linked!!'
 ln -s -f ~/dotfiles/.bash_aliases ~ && echo 'BASH_ALIASES was linked sucessfully!!' || echo 'BASHRC was not linked!!'
 
-#CONKYRC=~/.conkyrc
+### CONKYRC=~/.conkyrc
 ln -s -f ~/dotfiles/.conkyrc ~ && echo 'CONKYRC was linked sucessfully!!' || echo 'CONKYRC was not linked!!'
 
-#AUTOSTART=~/.config/autostart
+### AUTOSTART=~/.config/autostart
 ln -s -f ~/dotfiles/config/autostart ~/.config && echo 'AUTOSTART files were linked sucessfully!!' || echo 'AUTOSTART was not linked!!'
 
-#GIT=~/.config/git
-#ln -s -f ~/dotfiles/config/git ~/.config && echo 'GIT directory was linked sucessfully!!' || echo 'GIT was not linked!!'
+### GIT=~/.config/git
+ln -s -f ~/dotfiles/config/git ~/.config && echo 'GIT directory was linked sucessfully!!' || echo 'GIT was not linked!!'
 
-#HTOP=~/.config/htop
+### HTOP=~/.config/htop
 ln -s -f ~/dotfiles/config/htop ~/.config && echo 'HTOP directory was linked sucessfully' || echo 'HTOP was not linked'
 
-#PAP=~/.config/papirus-folders
+### PAP=~/.config/papirus-folders
 ln -s -f ~/dotfiles/config/papirus-folders ~/.config && echo 'PAPIRUS directory was linked sucessfully' || echo 'PAPIRUS was not linked!!'
 
+### Pulse config and bluetooth audio
 PULSE=~/.config/pulse
 if [ -d "$PULSE" ]; then
     echo '[ WARNING!! ] PULSE folder already exists!!'
@@ -109,28 +110,28 @@ else
     echo 'PULSE directory was created and linked sucessfully!!'
 fi
 
-#TMUX=~/.config/tmux
+### TMUX=~/.config/tmux
 ln -s -f ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was linked sucessfully!!' || echo 'TMUX was not linked!!'
 
 ### workaround for systemd not killing xconfd
-# shut down the panel first
+### shut down the panel first
 xfce4-panel --quit
-# kill the xfce4 configuration daemon
+### kill the xfce4 configuration daemon
 pkill xfconfd
-# link config files
+### link config files
 XFCE=~/.config/xfce4
 if [ -d "$XFCE" ]; then
     rm -rf $XFCE && ln -s ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was replaced sucessfully!!' || echo 'XFCE4 was not replaced!!'
 else
     ln -s ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was linked sucessfully!!' || echo 'XFCE4 was not linked!!'
 fi
-# Thunar config
-THUNAR=~/.config/Thunar
-if [ -d "$THUNAR" ]; then
-    rm -r $THUNAR && ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was replaced sucessfully!!' || echo 'THUNAR was not replaced!!'
-else
-    ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was linked sucessfully!!' || echo 'THUNAR was not linked!!'
-fi
+### Thunar config
+#THUNAR=~/.config/Thunar
+#if [ -d "$THUNAR" ]; then
+#    rm -r $THUNAR && ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was replaced sucessfully!!' || echo 'THUNAR was not replaced!!'
+#else
+#    ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was linked sucessfully!!' || echo 'THUNAR was not linked!!'
+#fi
 # restart xfce panel
 xfce4-panel
 
