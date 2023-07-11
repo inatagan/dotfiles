@@ -10,7 +10,7 @@
 # be at the destination path.
 #############
 
-## #Install themes
+### Install themes
 ICONS=~/.icons
 ### extraxting cursor files
 if [ -d "$ICONS" ]; then
@@ -81,7 +81,7 @@ ln -s -f ~/dotfiles/config/git ~/.config && echo 'GIT directory was linked suces
 ln -s -f ~/dotfiles/config/htop ~/.config && echo 'HTOP directory was linked sucessfully' || echo 'HTOP was not linked'
 
 ### PAP=~/.config/papirus-folders
-ln -s -f ~/dotfiles/config/papirus-folders ~/.config && echo 'PAPIRUS directory was linked sucessfully' || echo 'PAPIRUS was not linked!!'
+#ln -s -f ~/dotfiles/config/papirus-folders ~/.config && echo 'PAPIRUS directory was linked sucessfully' || echo 'PAPIRUS was not linked!!'
 
 ### Pulse config and bluetooth audio
 PULSE=~/.config/pulse
