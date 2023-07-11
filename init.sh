@@ -9,8 +9,64 @@
 # the -f flag alreay removes any content that might 
 # be at the destination path.
 #############
-#BASHRC=~/.bashrc
-ln -s -f ~/dotfiles/.bashrc ~ && echo 'BASHRC was linked sucessfully!!' || echo 'BASHRC was not linked!!'
+
+#Install themes
+ICONS=~/.icons
+# extraxting cursor files
+if [ -d "$ICONS" ]; then
+    for a in themes/cursors/*.tar.gz
+    do
+        tar xzf $a -C $ICONS
+    done
+else
+    mkdir $ICONS
+    for a in themes/cursors/*.tar.gz
+    do
+        tar xzf $a -C $ICONS
+    done
+fi
+
+#extracting icons themes
+if [ -d "$ICONS" ]; then
+    for a in themes/icons_pack/*.tar.xz
+    do
+        tar xf $a -C $ICONS
+    done
+else
+    mkdir $ICONS
+    for a in themes/icons_pack/*.tar.xz
+    do
+        tar xf $a -C $ICONS
+    done
+fi
+
+#my default fonts
+FONTS=~/.fonts
+if [ -d "$FONTS" ]; then
+    for a in fonts/*.zip
+    do
+        unzip -o $a -d $FONTS
+    done
+else
+    mkdir $FONTS
+    for a in fonts/*.zip
+    do
+        unzip -o $a -d $FONTS
+    done
+fi
+
+#my default theme
+THEMES=~/.themes
+if [ -d "$THEMES" ]; then
+    git clone https://github.com/inatagan/eva-01.git ~/.themes/eva-01
+else
+    mkdir $THEMES
+    git clone https://github.com/inatagan/eva-01.git ~/.themes/eva-01
+fi
+
+#BASHRC=~/.bashrc --ALIASES-ONLY
+#ln -s -f ~/dotfiles/.bashrc ~ && echo 'BASHRC was linked sucessfully!!' || echo 'BASHRC was not linked!!'
+ln -s -f ~/dotfiles/.bash_aliases ~ && echo 'BASH_ALIASES was linked sucessfully!!' || echo 'BASHRC was not linked!!'
 
 #CONKYRC=~/.conkyrc
 ln -s -f ~/dotfiles/.conkyrc ~ && echo 'CONKYRC was linked sucessfully!!' || echo 'CONKYRC was not linked!!'
@@ -19,7 +75,7 @@ ln -s -f ~/dotfiles/.conkyrc ~ && echo 'CONKYRC was linked sucessfully!!' || ech
 ln -s -f ~/dotfiles/config/autostart ~/.config && echo 'AUTOSTART files were linked sucessfully!!' || echo 'AUTOSTART was not linked!!'
 
 #GIT=~/.config/git
-ln -s -f ~/dotfiles/config/git ~/.config && echo 'GIT directory was linked sucessfully!!' || echo 'GIT was not linked!!'
+#ln -s -f ~/dotfiles/config/git ~/.config && echo 'GIT directory was linked sucessfully!!' || echo 'GIT was not linked!!'
 
 #HTOP=~/.config/htop
 ln -s -f ~/dotfiles/config/htop ~/.config && echo 'HTOP directory was linked sucessfully' || echo 'HTOP was not linked'
@@ -53,18 +109,10 @@ else
     echo 'PULSE directory was created and linked sucessfully!!'
 fi
 
-# workaround for systemd not killing xconfd
-THUNAR=~/.config/Thunar
-if [ -d "$THUNAR" ]; then
-    rm -r $THUNAR && ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was replaced sucessfully!!' || echo 'THUNAR was not replaced!!'
-else
-    ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was linked sucessfully!!' || echo 'THUNAR was not linked!!'
-fi
-
 #TMUX=~/.config/tmux
 ln -s -f ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was linked sucessfully!!' || echo 'TMUX was not linked!!'
 
-# workaround for systemd not killing xconfd
+### workaround for systemd not killing xconfd
 # shut down the panel first
 xfce4-panel --quit
 # kill the xfce4 configuration daemon
@@ -76,6 +124,13 @@ if [ -d "$XFCE" ]; then
 else
     ln -s ~/dotfiles/config/xfce4 ~/.config && echo 'XFCE4 directory was linked sucessfully!!' || echo 'XFCE4 was not linked!!'
 fi
+# Thunar config
+THUNAR=~/.config/Thunar
+if [ -d "$THUNAR" ]; then
+    rm -r $THUNAR && ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was replaced sucessfully!!' || echo 'THUNAR was not replaced!!'
+else
+    ln -s ~/dotfiles/config/Thunar ~/.config && echo 'THUNAR directory was linked sucessfully!!' || echo 'THUNAR was not linked!!'
+fi
 # restart xfce panel
 xfce4-panel
 
@@ -83,4 +138,4 @@ xfce4-panel
 ln -s -f ~/dotfiles/config/redshift.conf ~/.config && echo 'REDSHIFT file was linked sucessfully!!' || echo 'REDSHIFT was not linked!!'
 
 #STARSHIP=~/.config/starship.toml
-ln -s -f ~/dotfiles/config/starship.toml ~/.config && echo 'STARSHIP file was linked sucessfully!!' || echo 'STARSHIP was not linked!!'
+#ln -s -f ~/dotfiles/config/starship.toml ~/.config && echo 'STARSHIP file was linked sucessfully!!' || echo 'STARSHIP was not linked!!'
