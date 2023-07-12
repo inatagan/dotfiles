@@ -8,4 +8,8 @@ sudo apt install xfce4-whiskermenu-plugin sakura firefox-esr redshift redshift-g
 ### install bluetooth packages
 sudo apt install bluez-* pulseaudio-module-bluetooth blueman
 sudo adduser $USER bluetooth
+### Add zram for swap
+# sudo apt install zram-tools
+# edit this file to set the desired config
+# sudo micro /etc/default/zramswap
 ### it's recomended to reboot the system now

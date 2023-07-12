@@ -16,13 +16,13 @@ ICONS=~/.icons
 if [ -d "$ICONS" ]; then
     for a in themes/cursors/*.tar.gz
     do
-        tar xzf $a -C $ICONS
+        tar xvzf $a -C $ICONS
     done
 else
     mkdir $ICONS
     for a in themes/cursors/*.tar.gz
     do
-        tar xzf $a -C $ICONS
+        tar xvzf $a -C $ICONS
     done
 fi
 
@@ -30,13 +30,13 @@ fi
 if [ -d "$ICONS" ]; then
     for a in themes/icons_pack/*.tar.xz
     do
-        tar xf $a -C $ICONS
+        tar xvf $a -C $ICONS
     done
 else
     mkdir $ICONS
     for a in themes/icons_pack/*.tar.xz
     do
-        tar xf $a -C $ICONS
+        tar xvf $a -C $ICONS
     done
 fi
 
@@ -113,7 +113,13 @@ fi
 ### TMUX=~/.config/tmux
 ln -s -f ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was linked sucessfully!!' || echo 'TMUX was not linked!!'
 
-### workaround for systemd not killing xconfd
+### REDSHIFT=~/.config/redshift.conf
+ln -s -f ~/dotfiles/config/redshift.conf ~/.config && echo 'REDSHIFT file was linked sucessfully!!' || echo 'REDSHIFT was not linked!!'
+
+### STARSHIP=~/.config/starship.toml
+#ln -s -f ~/dotfiles/config/starship.toml ~/.config && echo 'STARSHIP file was linked sucessfully!!' || echo 'STARSHIP was not linked!!'
+
+### XFCE config -  workaround for systemd not killing xconfd
 ### shut down the panel first
 xfce4-panel --quit
 ### kill the xfce4 configuration daemon
@@ -134,9 +140,3 @@ fi
 #fi
 # restart xfce panel
 xfce4-panel
-
-#REDSHIFT=~/.config/redshift.conf
-ln -s -f ~/dotfiles/config/redshift.conf ~/.config && echo 'REDSHIFT file was linked sucessfully!!' || echo 'REDSHIFT was not linked!!'
-
-#STARSHIP=~/.config/starship.toml
-#ln -s -f ~/dotfiles/config/starship.toml ~/.config && echo 'STARSHIP file was linked sucessfully!!' || echo 'STARSHIP was not linked!!'
