@@ -68,5 +68,62 @@ Highlighted background : transparent
 
 Font : none
 
-### Code stuff
-* Install Node.js ...
+### BTRFS - TIMESHIFT - GRUB-BTRFS
+--Partition table
+    gpt
+    1 - efi
+    2 - /boot
+    3 - encrypted volume/lvm/btrfs root
+ 
+Before system install
+cntrl + alt + F2
+
+    >df
+    
+    >unmount /target/boot/efi/
+    
+    >unmount /target/boot/
+    
+    >unmount /target/
+    
+    
+    >mount dev/mapper/FIRELINK_VG0 /mnt
+    .
+    .
+    .
+    .
+    .
+
+W I P
+
+    }ina@firelink:~$ cat /etc/timeshift/timeshift.json
+    {
+    "backup_device_uuid" : "e24cbd7c-6246-4c48-9ccd-480f23b00eb7",
+    "parent_device_uuid" : "sZ20ok-MRTz-Kdon-4nxy-fsjb-gxnz-7Tlhe8",
+    "do_first_run" : "false",
+    "btrfs_mode" : "false",
+    "include_btrfs_home_for_backup" : "false",
+    "include_btrfs_home_for_restore" : "false",
+    "stop_cron_emails" : "true",
+    "schedule_monthly" : "false",
+    "schedule_weekly" : "false",
+    "schedule_daily" : "false",
+    "schedule_hourly" : "false",
+    "schedule_boot" : "false",
+    "count_monthly" : "2",
+    "count_weekly" : "3",
+    "count_daily" : "5",
+    "count_hourly" : "6",
+    "count_boot" : "5",
+    "date_format" : "%Y-%m-%d %H:%M:%S",
+    "exclude" : [
+        "+ /root/**",
+        "+ /home/ina/.**",
+        "/home/ina/.fonts/***",
+        "/home/ina/.themes/***",
+        "/home/ina/.vscode/***"
+    ],
+    "exclude-apps" : []
+    }ina@firelink:~$ 
+
+
