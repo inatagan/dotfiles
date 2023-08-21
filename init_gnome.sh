@@ -120,7 +120,7 @@ ln -s -f ~/dotfiles/config/tmux ~/.config && echo 'TMUX directory was linked suc
 # ln -s -f ~/dotfiles/config/redshift.conf ~/.config && echo 'REDSHIFT file was linked sucessfully!!' || echo 'REDSHIFT was not linked!!'
 
 ### STARSHIP=~/.config/starship.toml
-#ln -s -f ~/dotfiles/config/starship.toml ~/.config && echo 'STARSHIP file was linked sucessfully!!' || echo 'STARSHIP was not linked!!'
+ln -s -f ~/dotfiles/config/starship.toml ~/.config && echo 'STARSHIP file was linked sucessfully!!' || echo 'STARSHIP was not linked!!'
 
 ### XFCE config -  workaround for systemd not killing xconfd
 ### shut down the panel first
