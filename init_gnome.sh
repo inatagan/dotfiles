@@ -12,48 +12,48 @@
 
 ### Install themes
 ### extraxting cursor files
-ICONS=~/.icons
-if [ -d "$ICONS" ]; then
-    for a in themes/cursors/*.tar.gz
-    do
-        tar xvzf $a -C $ICONS
-    done
-else
-    mkdir $ICONS
-    for a in themes/cursors/*.tar.gz
-    do
-        tar xvzf $a -C $ICONS
-    done
-fi
+# ICONS=~/.icons
+# if [ -d "$ICONS" ]; then
+#     for a in themes/cursors/*.tar.gz
+#     do
+#         tar xvzf $a -C $ICONS
+#     done
+# else
+#     mkdir $ICONS
+#     for a in themes/cursors/*.tar.gz
+#     do
+#         tar xvzf $a -C $ICONS
+#     done
+# fi
 
 ### extracting icons themes
-if [ -d "$ICONS" ]; then
-    for a in themes/icons_pack/*.tar.xz
-    do
-        tar xvf $a -C $ICONS
-    done
-else
-    mkdir $ICONS
-    for a in themes/icons_pack/*.tar.xz
-    do
-        tar xvf $a -C $ICONS
-    done
-fi
+# if [ -d "$ICONS" ]; then
+#     for a in themes/icons_pack/*.tar.xz
+#     do
+#         tar xvf $a -C $ICONS
+#     done
+# else
+#     mkdir $ICONS
+#     for a in themes/icons_pack/*.tar.xz
+#     do
+#         tar xvf $a -C $ICONS
+#     done
+# fi
 
 ### my default fonts
-FONTS=~/.fonts
-if [ -d "$FONTS" ]; then
-    for a in fonts/*.zip
-    do
-        unzip -o $a -d $FONTS
-    done
-else
-    mkdir $FONTS
-    for a in fonts/*.zip
-    do
-        unzip -o $a -d $FONTS
-    done
-fi
+# FONTS=~/.fonts
+# if [ -d "$FONTS" ]; then
+#     for a in fonts/*.zip
+#     do
+#         unzip -o $a -d $FONTS
+#     done
+# else
+#     mkdir $FONTS
+#     for a in fonts/*.zip
+#     do
+#         unzip -o $a -d $FONTS
+#     done
+# fi
 
 ### my default theme
 # THEMES=~/.themes
@@ -79,6 +79,9 @@ ln -s -f ~/dotfiles/config/git ~/.config && echo 'GIT directory was linked suces
 
 ### HTOP=~/.config/htop
 ln -s -f ~/dotfiles/config/htop ~/.config && echo 'HTOP directory was linked sucessfully' || echo 'HTOP was not linked'
+
+### Neofetch=~/.config/neofetch
+ln -s -f ~/dotfiles/config/neofetch ~/.config && echo 'neofetch directory was linked sucessfully' || echo 'neofetch was not linked'
 
 ### PAP=~/.config/papirus-folders
 #ln -s -f ~/dotfiles/config/papirus-folders ~/.config && echo 'PAPIRUS directory was linked sucessfully' || echo 'PAPIRUS was not linked!!'
