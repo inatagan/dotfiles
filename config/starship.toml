@@ -1,14 +1,14 @@
 #                                 
 
 format = """
-[](fg:#0969da bg:#0969da)\
+[](fg:#916CAD bg:#916CAD)\
 $username\
-[](fg:#0969da bg:#eac54f)\
+[](fg:#916CAD bg:#50D06E)\
 $directory\
-[](fg:#eac54f bg:#e44729)\
+[](fg:#50D06E bg:#F08B18)\
 $git_branch\
 $git_status\
-[ ](fg:#e44729)\
+[ ](fg:#F08B18)\
 """
 
 right_format = """
@@ -20,13 +20,13 @@ $character
 
 [username]
 show_always = true
-style_user = "fg:#ffffff bg:#0969da"
-style_root = "fg:#ffffff bg:#0969da"
+style_user = "fg:#ffffff bg:#916CAD"
+style_root = "fg:#ffffff bg:#916CAD"
 format = '[$user ]($style)'
 disabled = false
 
 [directory]
-style = "fg:#000000 bg:#eac54f"
+style = "fg:#000000 bg:#50D06E"
 format = "[ $path ]($style)"
 disabled = false
 
@@ -38,12 +38,12 @@ disabled = false
 
 [git_branch]
 symbol = ""
-style = "fg:#ffffff bg:#e44729"
+style = "fg:#ffffff bg:#F08B18"
 format = '[ $symbol $branch ]($style)'
 disabled = false
 
 [git_status]
-style = "fg:#ffffff bg:#e44729"
+style = "fg:#ffffff bg:#F08B18"
 format = '[$all_status$ahead_behind ]($style)'
 disabled = false
 
