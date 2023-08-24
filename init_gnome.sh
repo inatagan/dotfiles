@@ -80,6 +80,9 @@ ln -s -f ~/dotfiles/config/git ~/.config && echo 'GIT directory was linked suces
 ### HTOP=~/.config/htop
 ln -s -f ~/dotfiles/config/htop ~/.config && echo 'HTOP directory was linked sucessfully' || echo 'HTOP was not linked'
 
+### micro=~/.config/micro
+ln -s -f ~/dotfiles/config/micro ~/.config && echo 'micro directory was linked sucessfully' || echo 'micro was not linked'
+
 ### Neofetch=~/.config/neofetch
 ln -s -f ~/dotfiles/config/neofetch ~/.config && echo 'neofetch directory was linked sucessfully' || echo 'neofetch was not linked'
 

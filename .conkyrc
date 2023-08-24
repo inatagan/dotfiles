@@ -39,11 +39,12 @@ conky.config = {
 	own_window_transparent = true,
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 
-	--Colours
+	--Colours_Dark
 	default_color = '#916CAD', 		-- default color and border color
 	color1 = '916CAD', 				-- title_color
 	color2 = 'F08B18', 				-- top memory or processe, graphs
 	color3 = 'CF074C', 				-- text color and graph bar color
+
 };
 
 conky.text = [[
