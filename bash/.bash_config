@@ -1,0 +1,97 @@
+# GLOBAL VAR
+BLACK='\[\033[30;22;5m\]'
+RED='\[\033[31;22;5m\]'
+GREEN='\[\033[32;22;5m\]'
+YELLOW='\[\033[33;22;5m\]'
+BLUE='\[\033[34;22;5m\]'
+MAGENTA='\[\033[35;22;5m\]'
+CYAN='\[\033[36;22;5m\]'
+WHITE='\[\033[37;22;5m\]'
+DEFAULT_COLOR='\[\033[39;22;5m\]'
+RESET='\[\033[0m\]'
+FANCYX='\342\234\227'
+CHECKMARK='\342\234\223'
+
+# FUNCTIONS
+# function to get current working branch
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+# elapsed time of command
+function timer_now {
+    date +%s%N
+}
+
+function timer_start {
+    timer_start=${timer_start:-$(timer_now)}
+}
+
+function timer_stop {
+    local delta_us=$((($(timer_now) - $timer_start) / 1000))
+    local us=$((delta_us % 1000))
+    local ms=$(((delta_us / 1000) % 1000))
+    local s=$(((delta_us / 1000000) % 60))
+    local m=$(((delta_us / 60000000) % 60))
+    local h=$((delta_us / 3600000000))
+    # Goal: always show around 3 digits of accuracy
+    if ((h > 0)); then timer_show=${h}h${m}m
+    elif ((m > 0)); then timer_show=${m}m${s}s
+    elif ((s >= 10)); then timer_show=${s}.$((ms / 100))s
+    elif ((s > 0)); then timer_show=${s}.$(printf %03d $ms)s
+    elif ((ms >= 100)); then timer_show=${ms}ms
+    elif ((ms > 0)); then timer_show=${ms}.$((us / 100))ms
+    else timer_show=${us}us
+    fi
+    unset timer_start
+}
+
+set_prompt () {
+    PREVIOUS_CMD=$? # Must come first!
+    # Add a bright white exit status for the last command
+    # PS1="$White\$? "
+    PS1="$DEFAULT_COLOR╭"
+    # If root, just print the host in red. Otherwise, print the current user
+    # and host in green.
+    if [[ $EUID == 0 ]]; then
+        PS1+="$RED\\u$DEFAULT_COLOR@\\h "
+    else
+        PS1+="$DEFAULT_COLOR\\u@\\h "
+    fi
+    # Print the working directory and working branch
+    PS1+="$MAGENTA\\W $YELLOW$(parse_git_branch) "
+    # If previous command was successful, print a green check mark. Otherwise, print
+    # a red X.
+    if [[ $PREVIOUS_CMD == 0 ]]; then
+        PS1+="$GREEN$CHECKMARK "
+    else
+        PS1+="$RED$FANCYX "
+    fi
+    # Add the ellapsed time and 
+    timer_stop
+    PS1+="$DEFAULT_COLOR($timer_show) "
+    # close the prompt and reset style
+    PS1+="\n$DEFAULT_COLOR╰$ $RESET"
+}
+PROMPT_COMMAND='set_prompt'
+trap 'timer_start' DEBUG
+
+# PROMPT THEME
+# force_color_prompt=yes
+# color_prompt=yes
+# if [ "$color_prompt" = yes ]; then
+# PS1='╭${debian_chroot:+($debian_chroot)}\[\033[39;22;5m\]\u@\h\[\033[00m\]:\[\033[34;22;5m\]\W\[\033[33;22;5m\]$(parse_git_branch)\[\033[0m\]$timer_show\n╰$ '
+# else
+# PS1='╭${debian_chroot:+($debian_chroot)}\u@\h:\W$(parse_git_branch)\n╰$ '
+# fi
+# unset color_prompt force_color_prompt
+
+# custom paths
+#nvim
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+# asdf configs
+export PATH=$PATH:~/.asdf/
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+#Set up shell completions asdf
+. <(asdf completion bash)
+export FLUTTER_ROOT="$(asdf where flutter)"
+export PATH="$HOME/.asdf/installs/flutter/3.29.3-stable/bin:$PATH"
