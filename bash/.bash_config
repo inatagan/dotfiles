@@ -1,16 +1,17 @@
 # GLOBAL VAR
-BLACK='\[\033[30;22;5m\]'
-RED='\[\033[31;22;5m\]'
-GREEN='\[\033[32;22;5m\]'
-YELLOW='\[\033[33;22;5m\]'
-BLUE='\[\033[34;22;5m\]'
-MAGENTA='\[\033[35;22;5m\]'
-CYAN='\[\033[36;22;5m\]'
-WHITE='\[\033[37;22;5m\]'
-DEFAULT_COLOR='\[\033[39;22;5m\]'
+BLACK='\[\033[30;22m\]'
+RED='\[\033[31;22m\]'
+GREEN='\[\033[32;22m\]'
+YELLOW='\[\033[33;22m\]'
+BLUE='\[\033[34;22m\]'
+MAGENTA='\[\033[35;22m\]'
+CYAN='\[\033[36;22m\]'
+WHITE='\[\033[37;22m\]'
+DEFAULT_COLOR='\[\033[39;22m\]'
 RESET='\[\033[0m\]'
 FANCYX='\342\234\227'
 CHECKMARK='\342\234\223'
+BLINK='\[\033[5m\]'
 
 # FUNCTIONS
 # function to get current working branch
@@ -70,7 +71,7 @@ set_prompt () {
     timer_stop
     PS1+="$DEFAULT_COLOR($timer_show) "
     # close the prompt and reset style
-    PS1+="\n$DEFAULT_COLOR╰$ $RESET"
+    PS1+="\n$DEFAULT_COLOR╰$BLINK$ $RESET"
 }
 PROMPT_COMMAND='set_prompt'
 trap 'timer_start' DEBUG
