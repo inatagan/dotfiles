@@ -1,0 +1,5 @@
+# Vim swap file.
+.swp
+
+# macOS folder attributes. 
+.DS_Store
