@@ -1,0 +1,8 @@
+$if($eq(%albumartist%,Various Artists),%album%,$if2(%albumartist%,%artist%))
+$if(%date%,\(%date%\) )
+$if(%albumartist%,%album%,)
+$if($eq(%_extension%,flac),[FLAC],)/
+$if($gt(%totaldiscs%,1),%discnumber% ,)
+$if($and(%albumartist%,%tracknumber%),$num(%tracknumber%,2) ,)
+$if(%_multiartist%,%artist% ,)
+%title%

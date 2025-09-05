@@ -30,10 +30,10 @@ bold_italic = { family = "0xProto", style = "Bold Italic"}
 size = 14.0
 
 # Bell settings
-[bell]
-animation = "EaseOutCubic"
-duration = 100
-color = "#523874"
+# [bell]
+# animation = "EaseOutCubic"
+# duration = 100
+# color = "#523874"
 
 # Cursor settings
 [cursor]
